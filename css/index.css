@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/dancingscrip.woff2') format('woff2');
+}
+
+.container {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  padding: 1em;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  overflow: auto;
+}
+
+.cerdo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5em;
+  min-height: calc(100vh - 82px);
+}
+
+.principal {
+	color: #388182;
+	font-family: 'Dancing Script', cursive;
+	font-size:32px;
+}
+
+.cerdo video {
+  position: relative;
+  height: 50vh !important;
+  max-height: 482px;
+  width: 90% !important;
+  max-width: 354px !important;
+}
+
+.lema {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  text-align: center;
+}
+
+.lema > p {
+  text-align: center;
+}
+
+.lema > h1 {
+  font-size:16px; 
+  font-family: Arial, Helvetica, sans-serif; 
+  color:#388182
+}
