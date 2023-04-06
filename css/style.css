@@ -919,7 +919,7 @@ header{
 	height:100%;
 }
 /*------ navigation  ------------------------------------------------*/
-.nav-holder {
+nav, .nav-holder {
 	float:right;
 	position:relative;
 	left: 20px;
@@ -2978,7 +2978,7 @@ article .btn {
 .nav-button-holder  {
 	display:block;
 }
-.nav-holder {
+nav, .nav-holder {
 	position:absolute;
 	top:50px;
 	left:0;
@@ -3212,6 +3212,12 @@ section {
 	padding-top:10px;
 	position:relative;
 }
+header {
+	width:100%;
+	padding:0 10px;
+	padding-top:10px;
+}
+
 .servicses-holder li , .inline-facts {
 	width:100%;
 }
