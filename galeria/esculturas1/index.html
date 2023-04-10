@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#388182">
 
     <!--=============== css  ===============-->	
-    <link type="text/css" rel="stylesheet" href="../css/galeria-detalle.min.css">
+    <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
 
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -46,7 +46,8 @@
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
                 <span id="prev"></span>
-                <span id="next"></span>
+                <span id="next">
+</span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/barba.webp' class = 'cloud-zoom' >
@@ -101,7 +102,7 @@
                         </a>
                     </div>
                 </div>
-                <!-- <span id="next" class="fa fa-angle-right fa-3x"></span>
+                <!-- <span id="next" class="fa fa-angle-right fa-3x"></span><div id="loading"></div>
                 <a aria-label="Mas información aquí"  href="" id="galeriaDetalles" class="lightbox">Ver detalles</a> -->
             </div>
         </div>
