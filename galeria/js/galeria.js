@@ -913,7 +913,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
       adjustY: 0
   };
 
-})(jQuery);
+})(jQuery); 
 
 //  menu    ------------------
 var nb = $(".nav-button"), nh = $("nav"), an = $("nav,.nav-button ");
@@ -928,3 +928,38 @@ function hideMenu() {
 nb.on("click", function() {
     if ($(this).hasClass("vis-m")) showMenu(); else hideMenu();
 });
+
+// loader 
+window.addEventListener('load', () => {
+  const loader = document.querySelector('#loading')
+  loader.style.display = "none"
+})
+
+// video loader
+const loadVideo = (video) => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', video.attributes.href.value, true)
+  xhr.responseType = 'blob'
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const blob = new Blob([xhr.response], { type: 'video/mp4' });
+      const url = window.URL.createObjectURL(blob);
+      const source = document.createElement('source')
+      source.src = url
+      source.type = "video/mp4"
+      video.append(source)
+      video.play()
+    }
+  };
+
+  xhr.send()
+}
+
+const loadVideos = () => {
+  const videos = document.querySelectorAll('video')
+  videos.forEach(loadVideo)
+}
+
+loadVideos()
+

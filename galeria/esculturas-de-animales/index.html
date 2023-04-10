@@ -5,21 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
 
     <!--=============== basic  ===============-->
-    
+
     <title>Alfredo Garcia Revuelta - Esculturas de Animales</title>
     <meta name="description" content="Esculturas de Animales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="">
     <meta name="theme-color" content="#388182">
-    <!--=============== css  ===============-->	
-    <link type="text/css" rel="stylesheet" href="../css/galeria-detalle.min.css">
-    
+    <!--=============== css  ===============-->
+    <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css"
+        crossorigin="anonymous">
+
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-29501812-1');
     </script>
@@ -30,7 +31,8 @@
         <div class="border"></div>
         <header>
             <div class="logo-holder">
-                <a aria-label="Mas información aquí" aria-label="Mas información aquí" class="logo" href="../../index.html">Alfredo Garcia
+                <a aria-label="Mas información aquí" aria-label="Mas información aquí" class="logo"
+                    href="../../index.html">Alfredo Garcia
                     Revuelta</a>
             </div>
             <div class="nav-button-holder">
@@ -40,104 +42,108 @@
                 <ul>
                     <li><a aria-label="Mas información aquí" href="../../index.html">INICIO</a></li>
                     <li><a aria-label="Mas información aquí" href="../../bio/index.html">BIO</a></li>
-                    <li><a aria-label="Mas información aquí" href="../../galeria/index.html" class="act-link">GALERIA</a></li>
-                    <li><a aria-label="Mas información aquí" href="../../contacto/index.html">CONTACTO</a></li>                             
+                    <li><a aria-label="Mas información aquí" href="../../galeria/index.html"
+                            class="act-link">GALERIA</a></li>
+                    <li><a aria-label="Mas información aquí" href="../../contacto/index.html">CONTACTO</a></li>
                 </ul>
             </nav>
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
                 <span id="prev"></span>
-                <span id="next"></span>
+                <span id="next">
+                </span>
+                <div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/jirafa.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="jirafa.webp" alt="Jirafa"/>
+                        <a aria-label="Mas información aquí" href='zoom/jirafa.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="jirafa.webp" alt="Jirafa" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/camello.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="camello.webp" alt="El Ciego"/>
+                        <a aria-label="Mas información aquí" href='zoom/camello.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="camello.webp" alt="El Ciego" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/hipopotamo.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="hipopotamo.webp" alt="Explorador"/>
+                        <a aria-label="Mas información aquí" href='zoom/hipopotamo.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="hipopotamo.webp" alt="Explorador" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/oso.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="oso.webp" alt="El peso de la ciudad"/>
+                        <a aria-label="Mas información aquí" href='zoom/oso.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="oso.webp" alt="El peso de la ciudad" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/camaleon.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="camaleon.webp" alt="Atrapados por el tiempo"/>
+                        <a aria-label="Mas información aquí" href='zoom/camaleon.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="camaleon.webp"
+                                alt="Atrapados por el tiempo" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/pavo.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="pavo.webp" alt="El Árbol del amor"/>
+                        <a aria-label="Mas información aquí" href='zoom/pavo.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="pavo.webp" alt="El Árbol del amor" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/elefante.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="elefante.webp"  alt="La Familia"/>
+                        <a aria-label="Mas información aquí" href='zoom/elefante.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="elefante.webp" alt="La Familia" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/buho.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="buho.webp" alt="Los amigos"/>
+                        <a aria-label="Mas información aquí" href='zoom/buho.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="buho.webp" alt="Los amigos" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/tigre.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="tigre.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/tigre.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="tigre.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/cebra.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="cebra.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/cebra.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="cebra.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/leon.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="leon.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/leon.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="leon.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/mono.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="mono.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/mono.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="mono.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/rinoceronte.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="rinoceronte.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/rinoceronte.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="rinoceronte.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/serpiente.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="serpiente.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/serpiente.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="serpiente.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/tortuga.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="tortuga.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/tortuga.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="tortuga.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/vaca.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="vaca.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/vaca.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="vaca.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/buitre.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="buitre.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/buitre.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="buitre.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                     <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/canguro.webp' class = 'cloud-zoom' >
-                            <img class="img-responsive center-block" src="canguro.webp"   alt="Pareja esperando"/>
+                        <a aria-label="Mas información aquí" href='zoom/canguro.webp' class='cloud-zoom'>
+                            <img class="img-responsive center-block" src="canguro.webp" alt="Pareja esperando" />
                         </a>
                     </div>
                 </div>
@@ -159,4 +165,5 @@
     <!--=============== scripts  ===============-->
     <script src="../js/galeria.min.js"></script>
 </body>
+
 </html>
