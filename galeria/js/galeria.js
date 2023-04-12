@@ -324,8 +324,8 @@ var textos = {
     ['La Familia, 2010', ' 152x43x41 cms.  Masilla eposica.']
   ],
   'dibujos-con-video': [
-    ['Caballete y pintura, 2008', '48x60,5 cms. Tinta china con monitor.'],
     ['Político, 2010', '48x60,5 cms. Tinta china con monitor.'],
+    ['Caballete y pintura, 2008', '48x60,5 cms. Tinta china con monitor.'],
     ['Espejismo, 2008', '48x60,5 cms. Tinta china con monitor.'],
     ['Turista en el museo, 2008', '70x50 cms. Tinta china con monitor.'],
     ['Museo, 2010', '48x60,5 cms. Tinta china con monitor.'],
