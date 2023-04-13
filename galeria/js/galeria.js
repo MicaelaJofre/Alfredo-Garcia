@@ -369,8 +369,8 @@ $(window).load(function () {
   var w = $(window).width()
   if (w < 1000) {
     $('#contenedor-diapositivas').cycle({
-      fx: 'scrollHorz',
-      speed: 100,
+      fx: 'fade',
+      speed: 200,
       timeout: 0,
       pager: '#miniaturas',
       prev: '#prev',
