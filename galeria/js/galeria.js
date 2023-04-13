@@ -369,8 +369,8 @@ $(window).load(function () {
   var w = $(window).width()
   if (w < 1000) {
     $('#contenedor-diapositivas').cycle({
-      fx: 'scrollHorz',
-      speed: 100,
+      fx: 'fade',
+      speed: 200,
       timeout: 0,
       pager: '#miniaturas',
       prev: '#prev',
@@ -381,7 +381,7 @@ $(window).load(function () {
       pagerAnchorBuilder: function (idx, slide) {
         //miniaturas
         return (
-          '<img class="miniaturas" id="mini' + (idx + 1) + '" img src="../' + url + '/mini/mini' + (idx + 1) + '.webp" width="95" height="140" /> '
+          '<img class="miniaturas" id="mini' + (idx + 1) + '" img src="../' + url + '/mini/mini' + (idx + 1) + '.webp" width="90" height="140" /> '
         )
       }
     })
@@ -451,6 +451,7 @@ $(window).load(function () {
       }
     }
   }
+
 
   document.getElementById('prev').onclick = fadeOutIn
   document.getElementById('next').onclick = fadeOutIn
