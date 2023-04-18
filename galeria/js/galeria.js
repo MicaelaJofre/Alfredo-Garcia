@@ -981,17 +981,18 @@ loadVideos()
 
 
 
-/* $(function() {
+$(function() {
   // Inicializar TouchSwipe
   $("#zoom-container").swipe({
       pinchStatus:function(event, phase, direction, distance , duration , fingerCount, pinchZoom) {
           if (phase == "move" && pinchZoom > 1) {
               // Ampliar la imagen
-              $("#zoom-container img").show();
+              console.log($("#zoom-container a"))
+              $("#zoom-container a").show();
               $("#zoom-container video").hide();
           } else if (phase == "end") {
               // Volver a mostrar el video
-              $("#zoom-container img").hide();
+              $("#zoom-container a").hide();
               $("#zoom-container video").show();
           }
       }
@@ -999,16 +1000,4 @@ loadVideos()
 
   // Inicializar Cloud Zoom
   $("#zoom-container").CloudZoom(zoomOptions);
-}) */
-
-$(function() {
-  $("#zoom-container").swipe( {
-    //Generic swipe handler for all directions
-    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      $(this).text("You swiped " + direction );  
-    }
-  });
- 
-  //Set some options later
-  $("#zoom-container").swipe( {fingers:2} );
-});
+})
