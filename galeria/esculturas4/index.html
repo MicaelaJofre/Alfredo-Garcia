@@ -13,8 +13,8 @@
     <meta name="theme-color" content="#388182">
 
     <!--=============== css  ===============-->
-    <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
-
+    <link rel="preload stylesheet" href="../css/galeria-detalle.css" as="style" type="text/css" crossorigin="anonymous">
+    
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
     <script>
@@ -50,17 +50,15 @@
             <div id="contenedor-diapo-flechas">
                 <span id="prev"></span>
                 <span id="next">
-</span><div id="loading"></div>
+                </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
-                    <div class="diapo center-block">
-                        <a aria-label="Mas información aquí" href='zoom/cristo_zoom.webp'
-                            style="position: relative" class='cloud-zoom'>
-                            <img width="652px" height="652px" class="img-responsive center-block fake-image"
-                                src="./placeholder.webp" alt="Cristo" />
-                            <video class="img-responsive center-block" style="position: absolute" muted loop href="cristo.mp4"></video>
+                    <div class="diapo center-block zoomContainer">
+                        <a aria-label="Mas información aquí" href='zoom/cristo_zoom.webp' style="position: relative" class='cloud-zoom'>
+                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Cristo" />
+                            <video class="img-responsive center-block" href="cristo.mp4" style="position: absolute" muted loop></video>
                         </a>
                     </div>
-                    <div class="diapo center-block">
+                    <div  class="diapo center-block">
                         <a aria-label="Mas información aquí" href='zoom/grito_zoom.webp' class='cloud-zoom'>
                             <img class=" img-responsive center-block" src="grito.webp"
                                 alt="Grito" />
@@ -125,7 +123,7 @@
     <!-- Main end -->
 
     <!--=============== scripts  ===============-->
-    <script src="../js/galeria.min.js"></script>
+    <script src="../js/galeria.js"></script>
 </body>
 
 </html>
