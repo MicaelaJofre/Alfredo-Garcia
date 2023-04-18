@@ -979,9 +979,10 @@ $(document).ready(function() {
     
   // Inicializar Panzoom en el elemento y configurar las opciones
   $zoomContainer.panzoom({
+    touchEnabled: true,
     $zoomRange: false,
     $contain: true,
-    $cursor: 'move',
+    disablePan: true,
     $duration: 200,
     $easing: 'ease-in-out',
     $onZoom: function() {
@@ -993,15 +994,6 @@ $(document).ready(function() {
       $video.show();
     }
   })
-   // Detectar el evento 'click' en el elemento <a> para alternar entre la imagen y el video
-   $zoomContainer.on('click', function(event) {
-    event.preventDefault();
-    if ($video.is(':visible')) {
-      $video.hide();
-      $img.show();
-    } else {
-      $img.hide();
-      $video.show();
-    }
-  });
+  
+
 })
