@@ -15,7 +15,7 @@
 
     <!--=============== css  ===============-->	
     <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
-
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
     <script>
@@ -48,64 +48,66 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev"></span>
-                <span id="next"></span>
                 <div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
                         <a href='zoom/politico_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Politico"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Politico"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="politico-bn15.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/huevos_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Caballete y pintura"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Caballete y pintura"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="huevos-bn15.mp4"></video>
                         </a>
                     </div>						
                     <div class="diapo center-block">
                         <a href='zoom/espejismo_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Espejismo"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Espejismo"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="espejismo-bn15.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/turistas_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Turista en el museo"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Turista en el museo"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="cuadro-museo-bn15.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/tiburones_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Museo"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Museo"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="buzo-bn15.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/pintor_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Pintor en su estudio"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Pintor en su estudio"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pintormares15-2.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/espacio_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp"  alt="Viaje espacial"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp"  alt="Viaje espacial"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="ovni-bn15.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/autoretrato_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Autoretrato"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Autoretrato"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pintor-bn15-2.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a href='zoom/amantes_zoom.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp"   alt="Pareja en la cama"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp"   alt="Pareja en la cama"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="amantes-bn18.mp4"></video>
                         </a>
                     </div>
+                </div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next"></span>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#388182">
     <!--=============== css  ===============-->
     <link type="text/css" rel="stylesheet" href="../../../galeria/css/galeria-detalle.min.css">
-
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../../favicon.ico">
     <script>
@@ -45,7 +45,6 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev" class="fa fa-angle-left fa-3x"></span>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block"><a href='../../../galeria/cuadros-de-ciudades/zoom/1.webp' class='cloud-zoom' id='zoom1'>
                             <img class="img-responsive center-block" style="position:relative;" src="../../../galeria/cuadros-de-ciudades/1.webp"
@@ -69,7 +68,10 @@
                     <div class="diapo center-block"><a href='../../../galeria/cuadros-de-ciudades/zoom/9.webp' class='cloud-zoom' id='zoom1'>
                             <img class="img-responsive center-block" src="../../../galeria/cuadros-de-ciudades/9.webp" alt="Sin titulo" /></a></div>
                 </div>
-                <span id="next" class="fa fa-angle-right fa-3x"></span><div id="loading"></div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next"></span>
+                </div>
             </div>
         </div>
         <div id="mini">

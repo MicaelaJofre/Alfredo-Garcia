@@ -13,7 +13,7 @@
 
     <!--=============== css  ===============-->	
     <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
-
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
 
@@ -47,9 +47,7 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev"></span>
-                <span id="next">
-</span><div id="loading"></div>
+                </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/labiosbig.webp' class = 'cloud-zoom' >
@@ -59,28 +57,32 @@
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/morenabig.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Pinup morena"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Pinup morena"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pinup-morena.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/espejobig.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Pinup y mirón"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Pinup y mirón"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pinup-espejo.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/1big.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Pinup rubia"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Pinup rubia"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pinup-rubia.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/ositobig.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Pinup y fantasía"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Pinup y fantasía"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="pinup-osito.mp4"></video>
                         </a>
                     </div>
+                </div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next"></span>
                 </div>
             </div>
         </div>

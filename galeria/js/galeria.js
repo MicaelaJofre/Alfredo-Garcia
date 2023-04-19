@@ -1037,7 +1037,7 @@ window.addEventListener('load', () => {
     })
   
     elem.addEventListener('panzoomzoom', (e) => {
-      console.log(e)
+      
     })
   
     elem.addEventListener('panzoomend', (e) => {

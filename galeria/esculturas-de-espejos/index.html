@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#388182">
     <!--=============== css  ===============-->	
     <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
-
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
     <script>
@@ -44,9 +44,7 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev"></span>
-                <span id="next">
-</span><div id="loading"></div>
+                </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/hombre-elefante-zoom.webp' class = 'cloud-zoom' >
@@ -93,6 +91,10 @@
                             <img class="img-responsive center-block" src="perros.webp"   alt="El explotador"/>
                         </a>
                     </div>
+                </div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next"></span>
                 </div>
             </div>
         </div>

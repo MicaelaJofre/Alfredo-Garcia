@@ -13,7 +13,7 @@
 
     <!--=============== css  ===============-->	
     <link rel="preload stylesheet" href="../css/galeria-detalle.min.css" as="style" type="text/css" crossorigin="anonymous">
-
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
     <script>
@@ -45,9 +45,7 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev"></span>
-                <span id="next">
-</span><div id="loading"></div>
+                </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/barba.webp' class = 'cloud-zoom' >
@@ -75,13 +73,13 @@
                         </a>
                     </div>
                     <div class="diapo center-block"  ><a aria-label="Mas información aquí"  href='zoom/retrato.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Retrato de boda"/>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image" src="./placeholder.webp" alt="Retrato de boda"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="retrato.mp4"></video>
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí"  href='zoom/retrovisor.webp' class = 'cloud-zoom' >
-                            <img width="652px" height="652px"  class="img-responsive center-block" src="./placeholder.webp"  alt="Espejo retrovisor"/>
+                            <img width="652px" height="652px"  class="img-responsive center-block fake-image" src="./placeholder.webp"  alt="Espejo retrovisor"/>
                             <video class="img-responsive center-block" style="position: absolute" muted loop href="retrovisor.mp4"></video>
                         </a>
                     </div>
@@ -95,6 +93,10 @@
                             <img class="img-responsive center-block" src="mano.webp"   alt="La mano del artista"/>
                         </a>
                     </div>
+                </div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next"></span>
                 </div>
                 <!-- <span id="next" class="fa fa-angle-right fa-3x"></span><div id="loading"></div>
                 <a aria-label="Mas información aquí"  href="" id="galeriaDetalles" class="lightbox">Ver detalles</a> -->
