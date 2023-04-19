@@ -14,6 +14,7 @@
 
     <!--=============== css  ===============-->
     <link rel="preload stylesheet" href="../css/galeria-detalle.css" as="style" type="text/css" crossorigin="anonymous">
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -48,11 +49,9 @@
         </header>
         <div id="diapositivas">
             <div id="contenedor-diapo-flechas">
-                <span id="prev"></span>
-                <span id="next">
                 </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
-                    <div class="diapo center-block zoomContainer">
+                    <div class="diapo center-block">
                         <a aria-label="Mas información aquí" href='zoom/cristo_zoom.webp' style="position: relative" class='cloud-zoom'>
                             <img width="652px" height="652px" class="img-responsive center-block" src="./placeholder.webp" alt="Cristo" />
                             <video class="img-responsive center-block" href="cristo.mp4" style="position: absolute" muted loop></video>
@@ -60,13 +59,13 @@
                     </div>
                     <div  class="diapo center-block">
                         <a aria-label="Mas información aquí" href='zoom/grito_zoom.webp' class='cloud-zoom'>
-                            <img class=" img-responsive center-block" src="grito.webp"
+                            <img class="img-responsive center-block" src="grito.webp"
                                 alt="Grito" />
                         </a>
                     </div>
                     <div class="diapo center-block">
                         <a aria-label="Mas información aquí" href='zoom/politicos_zoom.webp' class='cloud-zoom'>
-                            <img class=" img-responsive center-block" src="politicos.webp"
+                            <img class="img-responsive center-block" src="politicos.webp"
                                 alt="Politicos" />
                         </a>
                     </div>
@@ -103,6 +102,10 @@
                                 alt="La familia" />
                         </a>
                     </div>
+                </div>
+                <div class="arrows">
+                    <span id="prev"></span>
+                    <span id="next">
                 </div>
                 <!-- <a aria-label="Mas información aquí"  href="" id="galeriaDetalles" class="lightbox">Ver detalles</a> -->
             </div>
