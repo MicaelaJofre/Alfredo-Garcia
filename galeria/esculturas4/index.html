@@ -51,11 +51,14 @@
             <div id="contenedor-diapo-flechas">
                 </span><div id="loading"></div>
                 <div id="contenedor-diapositivas">
-                    <div class="diapo center-block" >
-                        <a href='zoom/cristo_zoom.webp' class = 'cloud-zoom'>
-                            <img class="img-responsive center-block" src="cristo.gif" alt="Cristo"/>
+                    <div class="diapo center-block">
+                        <a aria-label="Mas información aquí" href='zoom/cristo_zoom.webp'
+                            style="position: relative" class='cloud-zoom'>
+                            <img width="652px" height="652px" class="img-responsive center-block fake-image"
+                                src="placeholder.webp" alt="Cristo" />
+                            <video class="img-responsive center-block" style="position: absolute" muted loop href="cristo.mp4"></video>
                         </a>
-                </div>
+                    </div>
                     <div  class="diapo center-block">
                         <a aria-label="Mas información aquí" href='zoom/grito_zoom.webp' class='cloud-zoom'>
                             <img class="img-responsive center-block" src="grito.webp"
@@ -104,7 +107,7 @@
                 </div>
                 <div class="arrows">
                     <span id="prev"></span>
-                    <span id="next">
+                    <span id="next"></span>
                 </div>
                 <!-- <a aria-label="Mas información aquí"  href="" id="galeriaDetalles" class="lightbox">Ver detalles</a> -->
             </div>
