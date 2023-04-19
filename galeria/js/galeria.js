@@ -990,39 +990,50 @@ window.addEventListener('load', () => {
   
     elem.addEventListener('panzoomstart', (e) => {
       //if(touches === 1) return
-      const aEl = e.target.querySelector('a')
+      const blocks = document.querySelectorAll('.cloud-zoom-lens')
+
+      blocks.forEach((el) => el.remove())
+
+      const aEl = e.target.querySelector('a') 
       if(!aEl) return
   
       const src = aEl.getAttribute('href')
       if(!src) return 
+
+      aEl.style = "pointer-events: none;"
       
-      let img
-      if(aEl.children.length > 1) {
-        img = Array.from(aEl.children).at(-1)
+      const previewVideo = aEl.querySelector('video')
+
+      if(previewVideo) {
+        let img
+        if(aEl.children.length > 2) {
+          img = Array.from(aEl.children).at(-1)
+        } else {
+          img = document.createElement('img')
+          img.src = src
+          img.classList.add('zoomedImages')
+        }
+    
+        img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
+          
+        aEl.appendChild(img)
       } else {
-        img = document.createElement('img')
-        img.src = src
-        img.classList.add('zoomedImages')
+        let img
+        if(aEl.children.length > 1) {
+          img = Array.from(aEl.children).at(-1)
+        } else {
+          img = document.createElement('img')
+          img.src = src
+          img.classList.add('zoomedImages')
+        }
+    
+        img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
+        
+        const previewImg = document.querySelector('img')
+        if(!previewImg) return
+          
+        aEl.appendChild(img)
       }
-  
-      img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
-      
-      const previewImg = document.querySelector('img')
-      const previewVideo = document.querySelector('video')
-      //if(!previewImg && !previewVideo) return
-      const url = previewImg.getAttribute('src')
-      
-      if(previewImg && url !== './placeholder.webp'){
-        previewImg.style.display = "none"
-        console.log(previewImg)
-      }
-      else if(previewVideo && url === './placeholder.webp'){
-        previewVideo.style.display = "none"
-        previewImg.style.display = "none"
-        console.log(previewVideo)
-        console.log(previewImg)
-      }
-      aEl.appendChild(img)
     })
   
     elem.addEventListener('panzoomzoom', (e) => {
