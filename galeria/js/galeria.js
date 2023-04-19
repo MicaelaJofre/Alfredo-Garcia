@@ -990,11 +990,17 @@ window.addEventListener('load', () => {
   
     elem.addEventListener('panzoomstart', (e) => {
       //if(touches === 1) return
-      const aEl = e.target.querySelector('a')
+      const blocks = document.querySelectorAll('.cloud-zoom-lens')
+
+      blocks.forEach((el) => el.remove())
+
+      const aEl = e.target.querySelector('a') 
       if(!aEl) return
   
       const src = aEl.getAttribute('href')
       if(!src) return 
+
+      aEl.style = "pointer-events: none;"
       
       const previewVideo = aEl.querySelector('video')
 
