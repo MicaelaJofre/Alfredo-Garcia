@@ -974,6 +974,9 @@ const loadVideos = () => {
 
 loadVideos()
 
+
+// zoom movil
+
 window.addEventListener('load', () => {
   if(window.innerWidth > 1000) return
   const elems = document.querySelectorAll('.diapo')
@@ -986,13 +989,13 @@ window.addEventListener('load', () => {
     })
   
     elem.addEventListener('panzoomstart', (e) => {
-      // if(touches === 1) return
+      //if(touches === 1) return
       const aEl = e.target.querySelector('a')
       if(!aEl) return
   
       const src = aEl.getAttribute('href')
       if(!src) return 
-  
+      
       let img
       if(aEl.children.length > 1) {
         img = Array.from(aEl.children).at(-1)
@@ -1005,9 +1008,20 @@ window.addEventListener('load', () => {
       img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
       
       const previewImg = document.querySelector('img')
-      if(!previewImg) return
-  
-      previewImg.style.display = "none"
+      const previewVideo = document.querySelector('video')
+      //if(!previewImg && !previewVideo) return
+      const url = previewImg.getAttribute('src')
+      
+      if(previewImg && url !== './placeholder.webp'){
+        previewImg.style.display = "none"
+        console.log(previewImg)
+      }
+      else if(previewVideo && url === './placeholder.webp'){
+        previewVideo.style.display = "none"
+        previewImg.style.display = "none"
+        console.log(previewVideo)
+        console.log(previewImg)
+      }
       aEl.appendChild(img)
     })
   
