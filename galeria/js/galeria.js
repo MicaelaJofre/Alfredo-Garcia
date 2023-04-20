@@ -1013,7 +1013,6 @@ window.addEventListener('load', () => {
           img.src = src
           img.classList.add('zoomedImages')
         }
-    
         img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
           
         aEl.appendChild(img)
@@ -1026,7 +1025,6 @@ window.addEventListener('load', () => {
           img.src = src
           img.classList.add('zoomedImages')
         }
-    
         img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
         
         const previewImg = document.querySelector('img')
