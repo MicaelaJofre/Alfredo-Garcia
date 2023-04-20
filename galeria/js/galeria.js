@@ -430,11 +430,13 @@ function restart_lupa(el) {
 }
 
 var touches = 0  
+var isMoreThanTwo = false
 
 $(window).load(function () {
   document.querySelectorAll('.diapo').forEach((el) => {
     el.addEventListener('touchmove', (e) => {
       touches = e.touches.length
+      isMoreThanTwo = e.touches.length > 2
     })
   })
 
@@ -542,17 +544,14 @@ window.addEventListener('load', () => {
   elems.forEach((elem) => {
     const panzoom = Panzoom(elem, {
       minScale: 1,
-      maxScale: 10,
-      panOnlyWhenZoomed: true
+      maxScale: 1.5,
+      touchPan: false
     })
   
     elem.addEventListener('panzoomstart', (e) => {
       const blocks = document.querySelectorAll('.cloud-zoom-lens')
-      const diapos = document.querySelectorAll('.diapo')
-      diapos.forEach((diapo) => {
-        diapo.style["z-index"] = "20"
-      })
-
+      blocks.forEach((el) => el.remove())
+      
       if(isFirstTouchX) {
         firstTouchX = e.detail.originalEvent.clientX
         isFirstTouchX = false
@@ -571,7 +570,10 @@ window.addEventListener('load', () => {
         middleStartPositionY = (firstTouchY+secondTouchY)/2
       }
 
-      blocks.forEach((el) => el.remove())
+      const diapos = document.querySelectorAll('.diapo')
+      diapos.forEach((diapo) => {
+        diapo.style["z-index"] = "20"
+      })
 
       const aEl = e.target.querySelector('a') 
       if(!aEl) return
@@ -593,7 +595,7 @@ window.addEventListener('load', () => {
           img.src = src
           img.classList.add('zoomedImages')
         }
-        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999"
+        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; transform: translate(0px, 0px)"
           
         aEl.appendChild(img)
       } else {
@@ -606,7 +608,7 @@ window.addEventListener('load', () => {
           img.src = src
           img.classList.add('zoomedImages')
         }
-        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999"
+        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; transform: translate(0px, 0px)"
         
         const previewImg = document.querySelector('img')
         if(!previewImg) return
@@ -616,9 +618,21 @@ window.addEventListener('load', () => {
     })
   
     elem.addEventListener('panzoomzoom', (e) => {
-      if(!e.detail.originalEvent) return
-      
+      if(!e.detail.originalEvent || !e.target) return
+
+      const stylesDiapo = getComputedStyle(e.target)
+      const scale = stylesDiapo.transform.split(',')[3]
+      e.target.style.transform = `matrix(${scale}, 0, 0, ${scale}, 0, 0)`
+
       const image = e.target.querySelector('.zoomedImages')
+      
+      if(isMoreThanTwo) {
+        const transform = `transform: translate(0px, 0px)`
+        const newStyle = `display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; ${transform}`
+        image.style = newStyle
+        return
+      }
+
       if(isFirstVariableTouchX) {
         firstVariableTouchX = e.detail.originalEvent.clientX
         isFirstVariableTouchX = false
@@ -630,6 +644,7 @@ window.addEventListener('load', () => {
       if(isFirstVariableTouchY) {
         firstVariableTouchY = e.detail.originalEvent.clientY
         isFirstVariableTouchY = false
+        return
       } else {
         secondVariableTouchY = e.detail.originalEvent.clientY
         isFirstVariableTouchY = true
@@ -644,12 +659,52 @@ window.addEventListener('load', () => {
         const transform = `transform: translate(${middleVariablePositionX - middleStartPositionX}px, ${middleVariablePositionY - middleStartPositionY}px)`
         const newStyle = `display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; ${transform}`
         image.style = newStyle
-      }       
+      } else if (display === "block") {
+        // X variables for transform
+        firstTouchX = 0
+        secondTouchX = 0
+        isFirstTouchX = true
+        middleStartPositionX = 0
+
+        firstVariableTouchX = 0
+        secondVariableTouchX = 0
+        isFirstVariableTouchX = true
+
+        // Y variables for transform
+        firstTouchY = 0
+        secondTouchY = 0
+        isFirstTouchY = true
+        middleStartPositionY = 0
+
+        firstVariableTouchY = 0
+        secondVariableTouchY = 0
+        isFirstVariableTouchY = true
+      }    
     })
   
     elem.addEventListener('panzoomend', (e) => {
       const zoomedImages = e.target.querySelectorAll('.zoomedImages')
       const diapos = document.querySelectorAll('.diapo')
+
+      // X variables for transform
+      firstTouchX = 0
+      secondTouchX = 0
+      isFirstTouchX = true
+      middleStartPositionX = 0
+
+      firstVariableTouchX = 0
+      secondVariableTouchX = 0
+      isFirstVariableTouchX = true
+
+      // Y variables for transform
+      firstTouchY = 0
+      secondTouchY = 0
+      isFirstTouchY = true
+      middleStartPositionY = 0
+
+      firstVariableTouchY = 0
+      secondVariableTouchY = 0
+      isFirstVariableTouchY = true
 
       const video = e.target.querySelector('video')
       if(video) {
