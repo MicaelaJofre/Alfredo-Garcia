@@ -872,7 +872,6 @@ left:350px;*/
     display: flex;
     justify-content: center;
     width: 100%;
-    overflow: hidden!important;
   }
   #contenedor-diapo-flechas {
     display: flex;

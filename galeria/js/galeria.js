@@ -1025,7 +1025,7 @@ window.addEventListener('load', () => {
           img.src = src
           img.classList.add('zoomedImages')
         }
-        img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%"
+        img.style = "display: block; position: absolute; left: 0; top: 0; height: 100%; width: 100%; object-fit: cover"
         
         const previewImg = document.querySelector('img')
         if(!previewImg) return
