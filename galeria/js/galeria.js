@@ -544,7 +544,7 @@ window.addEventListener('load', () => {
   elems.forEach((elem) => {
     const panzoom = Panzoom(elem, {
       minScale: 1,
-      maxScale: 1.5,
+      maxScale: 3,
       touchPan: false
     })
   
