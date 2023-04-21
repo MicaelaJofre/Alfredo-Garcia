@@ -518,30 +518,39 @@ loadVideos()
 
   
 
-var container = document.querySelector('diapo');
-var hammertime = new Hammer(container);
-hammertime.get('pinch').set({ enable: true });
-hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+let container = document.querySelector('.diapo');
+let image  = container.querySelector('img')
 
-var currentScale = 1;
-var currentPosX = 0;
-var currentPosY = 0;
+// Creación de una instancia de Hammer en el contenedor
+const hammer = new Hammer(container);
 
-hammer.on('pinch', function (event) {
-  currentScale = event.scale;
-  updateImageTransform();
-});
+// Habilitar el reconocimiento de gestos de pellizco
+hammer.get('pinch').set({ enable: true });
 
-hammer.on('pan', function (event) {
-  currentPosX = event.deltaX;
-  currentPosY = event.deltaY;
-  updateImageTransform();
-});
+// Variables para almacenar las transformaciones
+let scaleX = 1;
+let scaleY = 1;
+let lastScaleX = 1;
+let lastScaleY = 1;
 
-function updateImageTransform() {
-  let myElement = document.querySelector('.img-responsive')
-  myElement.style.transform = 'translate(' + currentPosX + 'px, ' + currentPosY + 'px) scale(' + currentScale + ')';
+// Función para aplicar las transformaciones a la imagen
+function applyTransform() {
+  image.style.transform = `scale(\${scaleX}, \${scaleY})`;
 }
+
+// Escuchar el evento de pellizco y actualizar las escalas
+hammer.on('pinch pinchmove', (event) => {
+  scaleX = lastScaleX * event.scale;
+  scaleY = lastScaleY * event.scale;
+  applyTransform();
+});
+
+// Guardar las escalas al finalizar el pellizco
+hammer.on('pinchend', () => {
+  lastScaleX = scaleX;
+  lastScaleY = scaleY;
+});
+
 /*  const mc = new Hammer(previewImg);
   mc.get('pinch').set({ enable: true });
   mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
