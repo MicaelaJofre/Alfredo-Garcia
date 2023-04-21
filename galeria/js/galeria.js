@@ -517,213 +517,43 @@ const loadVideos = () => {
 loadVideos()
 
 
-// X variables for transform
-var firstTouchX = 0
-var secondTouchX = 0
-var isFirstTouchX = true
-var middleStartPositionX = 0
+const previewImg = document.querySelector('.cloud-zoom')
+const mc = new Hammer(previewImg);
+mc.get('pinch').set({ enable: true });
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
-var firstVariableTouchX = 0
-var secondVariableTouchX = 0
-var isFirstVariableTouchX = true
+let lastScale = 1;
+let startX = 0;
+let startY = 0;
+let moveX = 0;
+let moveY = 0;
 
-// Y variables for transform
-var firstTouchY = 0
-var secondTouchY = 0
-var isFirstTouchY = true
-var middleStartPositionY = 0
+mc.on('pinchstart', function(e) {
+  lastScale = e.scale;
+});
 
-var firstVariableTouchY = 0
-var secondVariableTouchY = 0
-var isFirstVariableTouchY = true
+mc.on('pinchmove', function(e) {
+  const scale = Math.max(1, Math.min(lastScale * e.scale, 5));
+  previewImg.style.transform = `scale(${scale}) translate(${moveX}px, ${moveY}px)`;
+});
 
-window.addEventListener('load', () => {
-  if(window.innerWidth > 1000) return
-  const elems = document.querySelectorAll('.diapo')
+mc.on('pinchend', function(e) {
+  lastScale = Math.max(1, Math.min(lastScale * e.scale, 5));
+  previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
+});
 
-  elems.forEach((elem) => {
-    const panzoom = Panzoom(elem, {
-      minScale: 1,
-      maxScale: 3,
-      touchPan: false
-    })
-  
-    elem.addEventListener('panzoomstart', (e) => {
-      const blocks = document.querySelectorAll('.cloud-zoom-lens')
-      blocks.forEach((el) => el.remove())
-      
-      if(isFirstTouchX) {
-        firstTouchX = e.detail.originalEvent.clientX
-        isFirstTouchX = false
-      } else {
-        secondTouchX = e.detail.originalEvent.clientX
-        isFirstTouchX = true
-        middleStartPositionX = (firstTouchX+secondTouchX)/2
-      }
+mc.on('panstart', function(e) {
+  startX = moveX;
+  startY = moveY;
+});
 
-      if(isFirstTouchY) {
-        firstTouchY = e.detail.originalEvent.clientY
-        isFirstTouchY = false
-      } else {
-        secondTouchY = e.detail.originalEvent.clientY
-        isFirstTouchY = true
-        middleStartPositionY = (firstTouchY+secondTouchY)/2
-      }
+mc.on('panmove', function(e) {
+  moveX = startX + e.deltaX;
+  moveY = startY + e.deltaY;
+  previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
+});
 
-      const diapos = document.querySelectorAll('.diapo')
-      diapos.forEach((diapo) => {
-        diapo.style["z-index"] = "20"
-      })
-
-      const aEl = e.target.querySelector('a') 
-      if(!aEl) return
-  
-      const src = aEl.getAttribute('href')
-      if(!src) return 
-
-      aEl.style = "pointer-events: none;"
-      
-      const previewVideo = aEl.querySelector('video')
-
-      if(previewVideo) {
-        let img
-        if(aEl.children.length > 2) {
-          img = Array.from(aEl.children).at(-1)
-          aEl.querySelector('video').style = "display: none"
-        } else {
-          img = document.createElement('img')
-          img.src = src
-          img.classList.add('zoomedImages')
-        }
-        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; transform: translate(0px, 0px)"
-          
-        aEl.appendChild(img)
-      } else {
-        let img
-        if(aEl.children.length > 1) {
-          img = Array.from(aEl.children).at(-1)
-          aEl.querySelector('img').style = "opacity: 0%"
-        } else {
-          img = document.createElement('img')
-          img.src = src
-          img.classList.add('zoomedImages')
-        }
-        img.style = "display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; transform: translate(0px, 0px)"
-        
-        const previewImg = document.querySelector('img')
-        if(!previewImg) return
-          
-        aEl.appendChild(img)
-      }
-    })
-  
-    elem.addEventListener('panzoomzoom', (e) => {
-      if(!e.detail.originalEvent || !e.target) return
-
-      const stylesDiapo = getComputedStyle(e.target)
-      const scale = stylesDiapo.transform.split(',')[3]
-      e.target.style.transform = `matrix(${scale}, 0, 0, ${scale}, 0, 0)`
-
-      const image = e.target.querySelector('.zoomedImages')
-      
-      if(isMoreThanTwo) {
-        const transform = `transform: translate(0px, 0px)`
-        const newStyle = `display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; ${transform}`
-        image.style = newStyle
-        return
-      }
-
-      if(isFirstVariableTouchX) {
-        firstVariableTouchX = e.detail.originalEvent.clientX
-        isFirstVariableTouchX = false
-      } else {
-        secondVariableTouchX = e.detail.originalEvent.clientX
-        isFirstVariableTouchX = true
-      }
-
-      if(isFirstVariableTouchY) {
-        firstVariableTouchY = e.detail.originalEvent.clientY
-        isFirstVariableTouchY = false
-        return
-      } else {
-        secondVariableTouchY = e.detail.originalEvent.clientY
-        isFirstVariableTouchY = true
-      }
-
-      const middleVariablePositionX = (firstVariableTouchX+secondVariableTouchX)/2
-      const middleVariablePositionY = (firstVariableTouchY+secondVariableTouchY)/2
-
-      const styles = getComputedStyle(image)
-      const display = styles.display
-      if(display !== "none") {
-        const transform = `transform: translate(${middleVariablePositionX - middleStartPositionX}px, ${middleVariablePositionY - middleStartPositionY}px)`
-        const newStyle = `display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; ${transform}`
-        image.style = newStyle
-      } else if (display === "block") {
-        // X variables for transform
-        firstTouchX = 0
-        secondTouchX = 0
-        isFirstTouchX = true
-        middleStartPositionX = 0
-
-        firstVariableTouchX = 0
-        secondVariableTouchX = 0
-        isFirstVariableTouchX = true
-
-        // Y variables for transform
-        firstTouchY = 0
-        secondTouchY = 0
-        isFirstTouchY = true
-        middleStartPositionY = 0
-
-        firstVariableTouchY = 0
-        secondVariableTouchY = 0
-        isFirstVariableTouchY = true
-      }    
-    })
-  
-    elem.addEventListener('panzoomend', (e) => {
-      const zoomedImages = e.target.querySelectorAll('.zoomedImages')
-      const diapos = document.querySelectorAll('.diapo')
-
-      // X variables for transform
-      firstTouchX = 0
-      secondTouchX = 0
-      isFirstTouchX = true
-      middleStartPositionX = 0
-
-      firstVariableTouchX = 0
-      secondVariableTouchX = 0
-      isFirstVariableTouchX = true
-
-      // Y variables for transform
-      firstTouchY = 0
-      secondTouchY = 0
-      isFirstTouchY = true
-      middleStartPositionY = 0
-
-      firstVariableTouchY = 0
-      secondVariableTouchY = 0
-      isFirstVariableTouchY = true
-
-      const video = e.target.querySelector('video')
-      if(video) {
-        video.style = "display: block"
-      }
-
-      const image = e.target.querySelector('img')
-      if(image && !video) {
-        image.style = "opacity: 100%"
-      }
-
-      diapos.forEach((diapo) => {
-        diapo.style["z-index"] = "9"
-      })
-      isFirstTouchX = true
-      zoomedImages.forEach((el) => {
-        el.style = `display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; z-index: 999999; transform: translate(0px, 0px)`
-      })
-      panzoom.reset()
-    })
-  })
-})
+mc.on('panend', function(e) {
+  startX = moveX;
+  startY = moveY;
+});
