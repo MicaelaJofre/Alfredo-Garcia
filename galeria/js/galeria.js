@@ -516,10 +516,33 @@ const loadVideos = () => {
 
 loadVideos()
 
-window.addEventListener("load",()=>{
   
-  const previewImg = document.querySelector('.img-responsive')
-  const mc = new Hammer(previewImg);
+
+var container = document.querySelector('diapo');
+var hammertime = new Hammer(container);
+hammertime.get('pinch').set({ enable: true });
+hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+
+var currentScale = 1;
+var currentPosX = 0;
+var currentPosY = 0;
+
+hammer.on('pinch', function (event) {
+  currentScale = event.scale;
+  updateImageTransform();
+});
+
+hammer.on('pan', function (event) {
+  currentPosX = event.deltaX;
+  currentPosY = event.deltaY;
+  updateImageTransform();
+});
+
+function updateImageTransform() {
+  let myElement = document.querySelector('.img-responsive')
+  myElement.style.transform = 'translate(' + currentPosX + 'px, ' + currentPosY + 'px) scale(' + currentScale + ')';
+}
+/*  const mc = new Hammer(previewImg);
   mc.get('pinch').set({ enable: true });
   mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
@@ -557,5 +580,4 @@ window.addEventListener("load",()=>{
   mc.on('panend', function(e) {
     startX = moveX;
     startY = moveY;
-  });
-})
+  }); */
