@@ -516,44 +516,46 @@ const loadVideos = () => {
 
 loadVideos()
 
+window.addEventListener("load",()=>{
+  
+  const previewImg = document.querySelector('.img-responsive')
+  const mc = new Hammer(previewImg);
+  mc.get('pinch').set({ enable: true });
+  mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
-const previewImg = document.querySelector('.cloud-zoom')
-const mc = new Hammer(previewImg);
-mc.get('pinch').set({ enable: true });
-mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+  let lastScale = 1;
+  let startX = 0;
+  let startY = 0;
+  let moveX = 0;
+  let moveY = 0;
 
-let lastScale = 1;
-let startX = 0;
-let startY = 0;
-let moveX = 0;
-let moveY = 0;
+  mc.on('pinchstart', function(e) {
+    lastScale = e.scale;
+  });
 
-mc.on('pinchstart', function(e) {
-  lastScale = e.scale;
-});
+  mc.on('pinchmove', function(e) {
+    const scale = Math.max(1, Math.min(lastScale * e.scale, 5));
+    previewImg.style.transform = `scale(${scale}) translate(${moveX}px, ${moveY}px)`;
+  });
 
-mc.on('pinchmove', function(e) {
-  const scale = Math.max(1, Math.min(lastScale * e.scale, 5));
-  previewImg.style.transform = `scale(${scale}) translate(${moveX}px, ${moveY}px)`;
-});
+  mc.on('pinchend', function(e) {
+    lastScale = Math.max(1, Math.min(lastScale * e.scale, 5));
+    previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
+  });
 
-mc.on('pinchend', function(e) {
-  lastScale = Math.max(1, Math.min(lastScale * e.scale, 5));
-  previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
-});
+  mc.on('panstart', function(e) {
+    startX = moveX;
+    startY = moveY;
+  });
 
-mc.on('panstart', function(e) {
-  startX = moveX;
-  startY = moveY;
-});
+  mc.on('panmove', function(e) {
+    moveX = startX + e.deltaX;
+    moveY = startY + e.deltaY;
+    previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
+  });
 
-mc.on('panmove', function(e) {
-  moveX = startX + e.deltaX;
-  moveY = startY + e.deltaY;
-  previewImg.style.transform = `scale(${lastScale}) translate(${moveX}px, ${moveY}px)`;
-});
-
-mc.on('panend', function(e) {
-  startX = moveX;
-  startY = moveY;
-});
+  mc.on('panend', function(e) {
+    startX = moveX;
+    startY = moveY;
+  });
+})
